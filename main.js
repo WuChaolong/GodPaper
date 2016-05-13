@@ -3,21 +3,9 @@
 
 
 load(self,[]);
-// var defaultBoard = new DrawingBoard.Board('canvas');
 
 
 function load(view,points) {
-
-
-
-
-
-
-
-
-
-
-
 
 "use strict";
 // The canvas drawing portion of the demo is based off the demo at
@@ -37,6 +25,7 @@ var
 	, drawing = false
 
 	, points = points||session.points ||[]
+	, serverPoints = []
 	, add_point = function(x, y, dragging) {
 		var point = {
 			x:x,
@@ -57,6 +46,8 @@ var
 if (typeof points === "string") {
 	points = JSON.parse(points);
 }
+points = watch(points);
+
 drawing = true;
 draw();
 drawing = false;
@@ -64,12 +55,11 @@ canvas.addEventListener("mousedown", function(event) {
 	event.preventDefault();
 	drawing = true;
 	add_point(event.pageX - canvas.offsetLeft, event.pageY - canvas.offsetTop, false);
-	draw();
+	
 }, false);
 canvas.addEventListener("mousemove", function(event) {
 	if (drawing) {
 		add_point(event.pageX - canvas.offsetLeft, event.pageY - canvas.offsetTop, true);
-		draw();
 	}
 }, false);
 canvas.addEventListener("mouseup", stop_drawing, false);
@@ -89,33 +79,11 @@ canvas_clear_button.addEventListener("click", function() {
 
 
 var pointsRef = new Firebase("https://canvaswebsocket.firebaseio.com/1462950411082");
-
-var websocketStatus = false;
-pointsRef.on("value", function(dataSnapshot,prevChildKey) {
-	var value = dataSnapshot.val();
-	if(!websocketStatus){
-	    var value = dataSnapshot.val();
-	    if(value){
-	    	var newPoints = Object.keys(value).map(function (key) {return value[key]});
-			
-	    }
-	    points = watch(newPoints);
-		draw();
-		
-	}
-   websocketStatus = true;
-});
 pointsRef.on('child_added', function(childSnapshot, prevChildKey) {
-  // code to handle new child.
-  if(websocketStatus){
-	  var value = childSnapshot.val();
-	  var index = points.contains(value);
 
-	  if(!index){
-	  	points.push2(value);
-	  	draw();
-	  }
-  }
+	  var value = childSnapshot.val();
+  	  serverPoints.push(value);
+  	  draw();
 });
    
 function watch(array){
@@ -124,9 +92,7 @@ function watch(array){
 
 	x.addEventListener("itemadded", function(e) {
 		console.log("Added %o at index %d.", e.item, e.index);
-		if(websocketStatus){
-			pointsRef.push(e.item);
-		}
+		pointsRef.push(e.item);
 	});
 	return x;
 }
@@ -140,21 +106,30 @@ function draw(){
 
 
 	ctx.beginPath();
-	var
-		  i = 0
-		, len = points.length
-	;
-	for(; i < len; i++) {
-		if (i && points[i].dragging) {
-			ctx.moveTo(points[i-1].x, points[i-1].y);
-		} else {
-			ctx.moveTo(points[i].x-1, points[i].y);
-		}
-		ctx.lineTo(points[i].x, points[i].y);
+	lineDraw(ctx,points);
+	lineDraw(ctx,serverPoints);
 
-	}
+	
+
 	ctx.closePath();
 	ctx.stroke();
+}
+
+
+function lineDraw(c,ps){
+	var
+		  i = 0
+		, len = ps.length
+	;
+	for(; i < len; i++) {
+		if (i && ps[i].dragging) {
+			c.moveTo(ps[i-1].x, ps[i-1].y);
+		} else {
+			c.moveTo(ps[i].x-1, ps[i].y);
+		}
+		c.lineTo(ps[i].x, ps[i].y);
+
+	}
 }
 
 };
