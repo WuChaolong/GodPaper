@@ -68,11 +68,11 @@ canvas.addEventListener("mouseout", stop_drawing, false);
 view.addEventListener("unload", function() {
 	session.points = JSON.stringify(points);
 }, false);
-canvas_clear_button.addEventListener("click", function() {
-	canvas.width = canvas.width;
-	points.length =
-		0;
-}, false);
+// canvas_clear_button.addEventListener("click", function() {
+// 	canvas.width = canvas.width;
+// 	points.length = 0;
+// 	pointsRef.remove();
+// }, false);
 
 
 
@@ -85,6 +85,13 @@ pointsRef.on('child_added', function(childSnapshot, prevChildKey) {
   	  serverPoints.push(value);
   	  draw();
 });
+   
+// pointsRef.on('child_removed', function(childSnapshot, prevChildKey) {
+
+// 	  var value = childSnapshot.val();
+//    	  serverPoints.remove(value);
+//   	  draw();
+// });
    
 function watch(array){
 	var x = new ObservableArray(array);
