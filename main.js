@@ -40,8 +40,6 @@ var
 	}
 	
 ;
-// canvas.width = 900;
-// canvas.height = 600;
 
 if (typeof points === "string") {
 	points = JSON.parse(points);
@@ -54,12 +52,14 @@ drawing = false;
 canvas.addEventListener("mousedown", function(event) {
 	event.preventDefault();
 	drawing = true;
-	add_point(event.pageX - canvas.offsetLeft, event.pageY - canvas.offsetTop, false);
+	add_point(event.offsetX, event.offsetY, false);
+// 	add_point(event.pageX - canvas.offsetLeft, event.pageY - canvas.offsetTop, false);
 	
 }, false);
 canvas.addEventListener("mousemove", function(event) {
 	if (drawing) {
-		add_point(event.pageX - canvas.offsetLeft, event.pageY - canvas.offsetTop, true);
+		add_point(event.offsetX, event.offsetY, true);
+// 		add_point(event.pageX - canvas.offsetLeft, event.pageY - canvas.offsetTop, true);
 	}
 }, false);
 canvas.addEventListener("mouseup", stop_drawing, false);
@@ -73,8 +73,6 @@ view.addEventListener("unload", function() {
 // 	points.length = 0;
 // 	pointsRef.remove();
 // }, false);
-
-
 
 
 
@@ -92,6 +90,21 @@ pointsRef.on('child_added', function(childSnapshot, prevChildKey) {
 //    	  serverPoints.remove(value);
 //   	  draw();
 // });
+
+if ("onhashchange" in view) {
+	var setTransform = function(){
+		canvas.style.transform = view.location.hash.substring(1);
+	};
+	setTransform();
+	view.onhashchange = setTransform;
+}
+
+
+
+
+
+
+
    
 function watch(array){
 	var x = new ObservableArray(array);
