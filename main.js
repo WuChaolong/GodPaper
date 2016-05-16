@@ -6,8 +6,23 @@ load(self,[]);
 
 
 function load(view,points) {
-
 "use strict";
+
+var pointsRefKey = getParameterByName("key");
+if(!pointsRefKey){
+	var time = new Date().getTime();
+	setParameterByName("key",false,time);
+}
+
+var pointsRef = new Firebase("https://canvaswebsocket.firebaseio.com/"+pointsRefKey||1462950411082);
+pointsRef.on('child_added', function(childSnapshot, prevChildKey) {
+
+	  var value = childSnapshot.val();
+  	  serverPoints.push(value);
+  	  draw();
+});
+
+
 // The canvas drawing portion of the demo is based off the demo at
 // http://www.williammalone.com/articles/create-html5-canvas-javascript-drawing-app/
 var
@@ -74,15 +89,18 @@ view.addEventListener("unload", function() {
 // 	pointsRef.remove();
 // }, false);
 
+if ("onhashchange" in view) {
+	var setTransform = function(){
+		canvas.style.transform = view.location.hash.substring(1);
+	};
+	setTransform();
+	view.onhashchange = setTransform;
+}
 
 
-var pointsRef = new Firebase("https://canvaswebsocket.firebaseio.com/1462950411082");
-pointsRef.on('child_added', function(childSnapshot, prevChildKey) {
 
-	  var value = childSnapshot.val();
-  	  serverPoints.push(value);
-  	  draw();
-});
+
+
    
 // pointsRef.on('child_removed', function(childSnapshot, prevChildKey) {
 
@@ -91,13 +109,7 @@ pointsRef.on('child_added', function(childSnapshot, prevChildKey) {
 //   	  draw();
 // });
 
-if ("onhashchange" in view) {
-	var setTransform = function(){
-		canvas.style.transform = view.location.hash.substring(1);
-	};
-	setTransform();
-	view.onhashchange = setTransform;
-}
+
 
 
 
@@ -150,6 +162,33 @@ function lineDraw(c,ps){
 		c.lineTo(ps[i].x, ps[i].y);
 
 	}
+}
+
+
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+function setParameterByName(name, url ,value) {
+    if (!url) url = window.location.href;
+	
+	window.location.href = replaceUrlParam(url, name, value);
+
+    
+}
+
+function replaceUrlParam(url, paramName, paramValue){
+
+    var pattern = new RegExp('\\b('+paramName+'=).*?(&|$)')
+    if(url.search(pattern)>=0){
+        return url.replace(pattern,'$1' + paramValue + '$2');
+    }
+    return url + (url.indexOf('?')>0 ? '&' : '?') + paramName + '=' + paramValue 
 }
 
 };
