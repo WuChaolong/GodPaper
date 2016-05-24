@@ -1,30 +1,48 @@
 var pointsRefKey = getParameterByName("key");
+
 if(!pointsRefKey){
 	var time = new Date().getTime();
 	setParameterByName("key",false,time);
-}
+} 
+var primaryColor = getParameterByName("primaryColor");
 
-var shapesRef = new Firebase("https://canvaswebsocket.firebaseio.com/"+pointsRefKey);
+
+var shapesRef = new Firebase("https://canvaswebsocket.firebaseio.com/"+stringToHex(pointsRefKey));
 
 var literallyDiv = document.getElementsByClassName('literally')[0];
 LC.init(
   literallyDiv
   ,{
       onInit:function(lc){
-          lc.shapes =  sessionGet();
-          
-          lc.repaintAllLayers();
+		lc.shapes =  sessionGet();
 
-          shapesRef.on('child_added', function(childSnapshot, prevChildKey) {
-      
-                var value = childSnapshot.val();
-                var shape = LC.JSONToShape({className:"LinePath",data:value});
-                lc.shapes.push(shape);
-                lc.repaintAllLayers();
-                value = null;
-                shape = null;
-          });
+		lc.repaintAllLayers();
+		shapesRef.limitToLast(3).on('child_added', function(childSnapshot, prevChildKey) {
+			
+			shapesPush(childSnapshot);
+			lc.repaintAllLayers();
+		});
+
+
+		shapesRef.on("value", function(snapshot) {
+			snapshot.forEach(function(data) {
+				shapesPush(data);
+			});
+			lc.repaintAllLayers();
+		}, function (errorObject) {
+		  console.log("The read failed: " + errorObject.code);
+		});
+
+
+		function shapesPush(childSnapshot){
+			var value = childSnapshot.val();
+			var shape = LC.JSONToShape({className:"LinePath",data:value});
+			lc.shapes.push(shape);
+			value = null;
+			shape = null;
+		}
       }
+      ,primaryColor:primaryColor?"#"+primaryColor:null
   }
 );
 
@@ -37,6 +55,10 @@ if ("onhashchange" in window) {
     setTransform();
     window.onhashchange = setTransform;
 }
+
+
+
+
 function refSave(shape) {
 	var copy = Object.assign({}, shape);
     copy["smoothedPoints"]=[];
@@ -104,4 +126,14 @@ if (!Object.assign) {
       return to;
     }
   });
+}
+function stringToHex(str) {
+	var arr = [];
+	for (var i = 0; i < str.length; i++) {
+	  arr[i] = ("00" + str.charCodeAt(i).toString(16)).slice(-4);
+	}
+	return "\\u" + arr.join("\\u");
+}
+function hexToString(str) {
+	return unescape(str.replace(/\\/g, "%"));
 }
