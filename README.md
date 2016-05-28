@@ -18,3 +18,6 @@
 <h2>只本地shapes</h2>
 <h2>M-O机器人总动员chear shapes</h2>
 <h2>user 入股 蓝=钱 init(所有人的总量钱0，蓝1000)</h2>
+<h2>入股 彩色魔法</h2>
+
+<h2>dblchick Mousepoint</h2>

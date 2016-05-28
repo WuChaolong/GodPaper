@@ -6,8 +6,8 @@ if(!pointsRefKey){
 } 
 var primaryColor = getParameterByName("primaryColor");
 
-
-var shapesRef = new Firebase("https://canvaswebsocket.firebaseio.com/"+stringToHex(pointsRefKey));
+var  backgroundShapesUrl= "https://canvaswebsocket.firebaseio.com/lcs/"+stringToHex(pointsRefKey)+"/backgroundShapes";
+var backgroundShapesRef = new Firebase(backgroundShapesUrl);
 
 var literallyDiv = document.getElementsByClassName('literally')[0];
 LC.init(
@@ -17,32 +17,36 @@ LC.init(
 		lc.shapes =  sessionGet();
 
 		lc.repaintAllLayers();
-		shapesRef.limitToLast(3).on('child_added', function(childSnapshot, prevChildKey) {
-			
-			shapesPush(childSnapshot);
-			lc.repaintAllLayers();
+		backgroundShapesRef.limitToLast(3).on('child_added', function(childSnapshot, prevChildKey) {
+			backgroundShapesPush(childSnapshot.val());
+			lc.repaintLayer('background');
 		});
-
-
-		shapesRef.on("value", function(snapshot) {
+		backgroundShapesRef.limitToLast(200).once("value", function(snapshot) {
 			snapshot.forEach(function(data) {
-				shapesPush(data);
+				backgroundShapesPush(data.val());
 			});
-			lc.repaintAllLayers();
+			lc.repaintLayer('background');
 		}, function (errorObject) {
 		  console.log("The read failed: " + errorObject.code);
 		});
-
-
-		function shapesPush(childSnapshot){
-			var value = childSnapshot.val();
+// 		LC.gotData=function(data){
+// 			console.log(data);
+// 			for(var key in data){
+// 				LC.backgroundShapesPush(data[key]);
+// 			}
+// 			lc.repaintLayer('background');
+// 		}
+		function backgroundShapesPush(value){
 			var shape = LC.JSONToShape({className:"LinePath",data:value});
-			lc.shapes.push(shape);
+			lc.backgroundShapes.push(shape);
 			value = null;
 			shape = null;
 		}
+// 		var jsonP = htmlToElement('<script src="'+backgroundShapesUrl+'.json?orderBy=%22$key%22&limitToLast=2&callback=LC.gotData"></script>');
+// 		document.body.appendChild(jsonP); 
+		
       }
-      ,primaryColor:primaryColor?"#"+primaryColor:null
+      ,primaryColor:primaryColor?"#"+primaryColor:"hsla(0, 0%, 0%, 1)"
   }
 );
 
@@ -61,10 +65,19 @@ if ("onhashchange" in window) {
 
 function refSave(shape) {
 	var copy = Object.assign({}, shape);
+    var points = copy.points;
+//     for(var i = 0;i<points.length;i++){
+//     	points[i].color = danghua(points[i].color);
+//     }
     copy["smoothedPoints"]=[];
     copy["tail"]=[];
-    shapesRef.push(copy);
+    backgroundShapesRef.push(copy);
+//     copy = null;
+//     backgroundShapesRef.child("help").on("value", function(snapshot) {
+// 		backgroundShapesRef.push(copy);
+// 	});
 };
+
 function sessionSave(shape) {
     var shapes = JSON.parse(sessionStorage[pointsRefKey]||"[]");
     shapes.push(shape);
@@ -131,9 +144,21 @@ function stringToHex(str) {
 	var arr = [];
 	for (var i = 0; i < str.length; i++) {
 	  arr[i] = ("00" + str.charCodeAt(i).toString(16)).slice(-4);
+	
 	}
-	return "\\u" + arr.join("\\u");
+	return "u" + arr.join("u");
 }
 function hexToString(str) {
-	return unescape(str.replace(/\\/g, "%"));
+	return unescape(str.replace(/u/g, "%u"));
+}
+function danghua(color){
+	if(color.indexOf("#")==0){
+		return color;
+	}
+	return "hsla(0, 0%, 0%, 0.5)";
+} 
+function htmlToElement(html) {
+    var template = document.createElement('template');
+    template.innerHTML = html;
+    return template.content.firstChild;
 }

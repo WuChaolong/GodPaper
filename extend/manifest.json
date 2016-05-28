@@ -2,18 +2,18 @@
   "manifest_version": 2,
 
   "name": "Apper",
-  "description": "This extension shows a magic paper in the current page",
+  "description": "This extension will show a magic paper when pages loaded",
   "version": "1.0",
   "icons": { "128": "apper.png" },
   "browser_action": {
-    "default_icon": "icon.png",
-    "default_title": "Make this page add a apper"
+    "default_title": "apper ed, will show a magic paper when pages loaded"
   },
-  "permissions": [
-    "activeTab"
-  ],
-  "background": {
-    "scripts": ["bg.js"],
-    "persistent": false
-  }
+  
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["inIfame.js"]
+    }
+  ]
+  
 }

@@ -3063,11 +3063,12 @@ util = {
     };
   })(),
   requestAnimationFrame: function(f) {
-    if (window.webkitRequestAnimationFrame) {
-      return window.webkitRequestAnimationFrame(f);
-    }
+    
     if (window.requestAnimationFrame) {
       return window.requestAnimationFrame(f);
+    }
+    if (window.webkitRequestAnimationFrame) {
+      return window.webkitRequestAnimationFrame(f);
     }
     if (window.mozRequestAnimationFrame) {
       return window.mozRequestAnimationFrame(f);
@@ -3216,10 +3217,10 @@ init = function(el, opts) {
     opts.backgroundColor = 'transparent';
   }
   if (opts.strokeWidths == null) {
-    opts.strokeWidths = [5];
+    opts.strokeWidths = [4,5];
   }
   if (opts.defaultStrokeWidth == null) {
-    opts.defaultStrokeWidth = 5;
+    opts.defaultStrokeWidth = 4;
   }
   if (opts.toolbarPosition == null) {
     opts.toolbarPosition = "hidden";
