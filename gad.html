@@ -1,0 +1,22 @@
+<html>
+<head></head>
+<body>
+<h1>Paaper's god</h1>
+<script src="lib/firebase/firebase-debug.js"></script>
+
+<script>
+
+var lcsRef = new Firebase("https://canvaswebsocket.firebaseio.com/lcs/");
+var count= 0;
+lcsRef.on('child_added', function(childSnapshot, prevChildKey) {
+    var key = hexToString(childSnapshot.key());
+    window.open("index.html?key="+key,'_newtab'+key);
+});
+
+function hexToString(str) {
+	return unescape(str.replace(/u/g, "%u"));
+}
+
+</script>
+<body>
+<html>

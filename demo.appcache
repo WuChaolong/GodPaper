@@ -1,10 +1,12 @@
 CACHE MANIFEST
 # v1.0.2
+index.html
 lib/firebase/firebase-debug.js
 ./index_files/react-with-addons.js
 ./index_files/literallycanvas.css
-
-NETWORK:
 ./index_files/literallycanvas.js
 ./index_files/main.js
+./index_files/img/1463885391767/paper.png
+
+NETWORK:
 FALLBACK:

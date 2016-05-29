@@ -18,3 +18,7 @@ body {
     overflow: hidden;
 }
 /*# sourceMappingURL=literallycanvas.css.map */
+
+@-webkit-keyframes move_eye { from { right:0;}  60%{right:0;} to  { right:-21em;}  }@-moz-keyframes move_eye { from { right:0;}  60%{right:0;} to  { right:-21em;}  }@-o-keyframes move_eye { from { right:0;}  60%{right:0;} to  { right:-21em;}  }@keyframes move_eye { from { right:0;}  60%{right:0;} to  { right:-21em;}  } 
+.show-prompt{position: fixed;bottom: .5em;right: -12.5em;z-index: 2;box-shadow: 1px 1px 5px #868686;padding: .5em;padding-left: 1.5em;transition: right 2s;background-image: url(//wuchaolong.github.io/paaper/index_files/img/1463885391767/paper.png);background-size: 1.5em 100%;background-repeat: no-repeat;/* -webkit-animation: 5s ease-in-out move_eye; -moz-animation: 5s ease-in-out move_eye;-o-animation: 5s ease-in-out move_eye;animation: 5s ease-in-out move_eye; */font-family: initial;}
+.show-prompt:active,.show-prompt:hover,.show-prompt:focus{right:0;animation-play-state: paused;}
