@@ -3,9 +3,9 @@
 .literally {
     /* transform: translate(120px, 50px); */
     transition: all 0.5s ease-out;
-    height: 1000px;
+    max-height: 1000px;
     /* width: 1000px; */
-    /* height: 100%; */
+    min-height: 100%;
     /* width: 1000px; */
     /* border: 1px solid; */
     box-shadow: 1px 1px 5px #bbbfc2;
