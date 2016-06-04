@@ -4,6 +4,7 @@ if(!pointsRefKey){
 	var time = new Date().getTime();
 	setParameterByName("key",false,time);
 } 
+setTitle(pointsRefKey);
 var primaryColor = getParameterByName("primaryColor");
 
 var  backgroundShapesUrl= "https://canvaswebsocket.firebaseio.com/lcs/"+stringToHex(pointsRefKey)+"/backgroundShapes";
@@ -161,4 +162,8 @@ function htmlToElement(html) {
     var template = document.createElement('template');
     template.innerHTML = html;
     return template.content.firstChild;
+}
+function setTitle(title){
+	var titleDom = document.getElementsByTagName("title")[0];
+	titleDom.innerHTML=title;
 }
