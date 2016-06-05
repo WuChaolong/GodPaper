@@ -1,0 +1,69 @@
+<form action="result.html">
+<p id="imageGroup"><input type="file" accept="image/*" name="image">
+<!-- <input type="file" accept="image/*" name="image"> -->
+<!-- <ul>
+    <li><input>
+</ul> -->
+<p>+
+<p class="a-upload">select audio<input type="file" accept="audio/*">
+<p><input type="submit" value="=">
+</form>
+
+<link rel="stylesheet" type="text/css" href="picEdit/dist/css/picedit.min.css" />
+<style>
+.ico-picedit-camera,.picedit_action_btns>.ico-picedit-camera{
+    display:none;
+}
+html{
+    text-align: center;
+}
+.a-upload {
+    padding: 4px 10px;
+    height: 20px;
+    line-height: 20px;
+    position: relative;
+    cursor: pointer;
+    color: #888;
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1
+}
+
+.a-upload  input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer
+}
+
+.a-upload:hover {
+    color: #444;
+    background: #eee;
+    border-color: #ccc;
+    text-decoration: none
+}
+</style>
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="picEdit/dist/js/picedit.js"></script>
+<script type="text/javascript">
+    $(function() {
+        var $firstImage = $('input[name="image"]');
+        $firstImage.picEdit({fileLoaded:addImageInput});
+        function addImageInput(){
+            var html = $.parseHTML( '<input type="file" accept="image/*" name="image">' );
+//             console.log(this.element);
+            var $parent = $firstImage.parent()
+            $parent.append(html);
+            $parent.children().last().picEdit({fileLoaded:addImageInput})
+        }
+    });
+    
+</script>
