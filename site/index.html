@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)https://segmentfault.com/e/1160000005060714 -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"><meta name="renderer" content="webkit"><meta property="qc:admins" content="15317273575564615446375"><meta property="og:image" content="https://sf-static.b0.upaiyun.com/v-57515928/global/img/touch-icon.png"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"><meta name="alexaVerifyID" content="LkzCRJ7rPEUwt6fVey2vhxiw1vQ"><meta name="apple-itunes-app" content="app-id=958101793, app-argument="><title>SegmentFault Hackathon 文艺复兴 - 深圳站 - SegmentFault</title><meta name="description" content="活动及主题简介 1959 年，彼得 · 萨姆森在造访 MIT 时看到了计算机，并由此诞生了被称为第一代 hacker 的 TMRC（技术模型铁路俱乐部）。他们挑战规则、承担风险，聪明、独立、忘我。他们通宵达旦的研究，改革、更..."><meta name="keywords" content="黑客马拉松 深圳"><link rel="search" type="application/opensearchdescription+xml" href="https://segmentfault.com/opensearch.xml" title="SegmentFault"><link rel="shortcut icon" href="https://sf-static.b0.upaiyun.com/v-57515928/global/img/favicon.ico"><link rel="apple-touch-icon" href="https://sf-static.b0.upaiyun.com/v-57515928/global/img/touch-icon.png"><meta name="msapplication-TileColor" content="#009a61"><meta name="msapplication-square150x150logo" content="https://sf-static.b0.upaiyun.com/v-57515928/global/img/touch-icon.png"><meta name="userId" value="1030000000520876" id="SFUserId"><meta name="userRank" value="0" id="SFUserRank"><link rel="alternate" type="application/atom+xml" title="SegmentFault 最新问题" href="https://segmentfault.com/feeds/questions"><link rel="alternate" type="application/atom+xml" title="SegmentFault 最新文章" href="https://segmentfault.com/feeds/blogs"><link rel="stylesheet" href="./index_files/global.css"><link rel="stylesheet" href="./index_files/event.css"><link rel="stylesheet" href="./index_files/responsive.css"><!--[if lt IE 9]><link rel="stylesheet" href="https://sf-static.b0.upaiyun.com/v-57515928/global/css/ie.css"/><script src="https://sf-static.b0.upaiyun.com/v-57515928/global/script/html5shiv.js"></script><script src="https://sf-static.b0.upaiyun.com/v-57515928/global/script/respond.js"></script><![endif]--><script src="./index_files/hm.js"></script><script async="" src="./index_files/analytics.js"></script><script src="./index_files/debug.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://segmentfault.com:7001/socket.io/socket.io.js" src="./index_files/socket.io.js"></script></head><body data-mod="event" class="event-detail
+"><!--[if lt IE 9]><div class="alert alert-danger topframe" role="alert">你的浏览器实在<strong>太太太太太太旧了</strong>，放学别走，升级完浏览器再说 <a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div><![endif]--><img id="icon4weChat" style="height: 0;width: 0;" data-src="https://sf-static.b0.upaiyun.com/v-57515928/global/img/touch-icon-512.png"><img id="icon4weChat" data-src="https://sf-static.b0.upaiyun.com/v-57515928/global/img/touch-icon-512.png"><div class="global-nav sf-header"><nav class="container nav"><div class="hidden-sm hidden-lg hidden-md"><div class="sf-header__logo sf-header__logo--response"><h1><a></a></h1></div><div class="dropdown m-menu"><a href="javascript:void(0);" id="dLabel" class="visible-xs-block m-toptools" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-align-justify"></span><span class="mobile-menu__unreadpoint"></span></a><ul class="dropdown-menu" role="menu" aria-labelledby="dLabel"><li class="mobile-menu__item"><a href="https://segmentfault.com/questions/newest">问答</a></li><li class="mobile-menu__item"><a href="https://segmentfault.com/blogs">文章</a></li><li class="mobile-menu__item"><a href="https://segmentfault.com/user/note">笔记</a></li><li class="mobile-menu__item"><a href="https://segmentfault.com/jobs">职位</a></li><li class="mobile-menu__item"><a href="https://segmentfault.com/events">活动</a></li><li class="mobile-menu__item"><a href="https://segmentfault.com/tags">标签</a></li><li class="mobile-menu__item"><a href="https://segmentfault.com/users">榜单</a></li><li class="mobile-menu__item"><a href="https://segmentfault.com/sites">子站</a></li><li role="presentation" class="divider"></li><li class="mobile-menu__item"><a href="https://segmentfault.com/user/notifications">消息<span class="pull-right badge mt4" id="m-messageCount"></span></a></li><li role="presentation" class="divider"></li><li class="mobile-menu__item"><a href="https://segmentfault.com/api/user/logout?_=dce344cbd1e15353976f01a04d0baa9d">退出</a></li></ul></div><a href="https://segmentfault.com/ask" class="visible-xs-block pull-right m-ask m-toptools"><span class="glyphicon glyphicon-pencil"></span></a></div><div class="row hidden-xs"><div class="col-sm-9 col-md-7 col-lg-6"><div class="sf-header__logo"><h1><a href="https://segmentfault.com/">SegmentFault</a></h1></div><ul class="menu list-inline pull-left hidden-xs"><li class="menu__item"><a href="https://segmentfault.com/questions">问答</a></li><li class="menu__item"><a href="https://segmentfault.com/blogs">文章</a></li><li class="menu__item"><a href="https://segmentfault.com/user/note">笔记</a></li><li class="menu__item"><a href="https://segmentfault.com/jobs" target="_blank">职位</a></li><li class="menu__item"><a href="https://segmentfault.com/events">活动</a></li></ul></div><div class="col-sm-3 col-md-5 col-lg-6 text-right"><form action="https://segmentfault.com/search" class="header-search  hidden-sm hidden-xs mr20"><button class="btn btn-link"><span class="sr-only">搜索</span><span class="glyphicon glyphicon-search"></span></button><input id="searchBox" name="q" type="text" placeholder="输入关键字搜索" class="form-control" value=""></form><ul class="opts list-inline hidden-xs"><li class="opts__item dropdown hoverDropdown write-btns"><a class="dropdownBtn" data-toggle="dropdown" href="https://segmentfault.com/ask">撰写<span class="caret"></span></a><ul class="dropdown-menu dropdown-menu-right "><li><a href="https://segmentfault.com/ask">提问题</a></li><li><a href="https://segmentfault.com/write">写文章</a></li><li><a href="https://segmentfault.com/record">记笔记</a></li><li class="divider"></li><li><a href="https://segmentfault.com/user/draft">草稿箱</a></li></ul></li><li class="opts__item message has-unread "><a id="dLabel" class="dropdown-toggle-message" href="javascript:;"><span class="sr-only">消息</span><span id="messageCount" class="fa fa-bell-o"></span></a><div class="opts__item--message hide"><div class="panel panel-default"><div class="panel-heading"><ul class="nav nav-tabs nav-tabs-message"><li role="presentation" class="active"><a href="https://segmentfault.com/e/1160000005060714#messageGeneral" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true"><i class="fa fa-bullhorn"></i><span class="notice-dot hide notice-dot-general"></span></a></li><li role="presentation" class=""><a href="https://segmentfault.com/e/1160000005060714#messageRanked" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true"><i class="fa fa-thumbs-o-up"></i><span class="notice-dot hide notice-dot-ranked"></span></a></li><li role="presentation" class=""><a href="https://segmentfault.com/e/1160000005060714#messageFollowed" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true"><i class="fa fa-user-plus"></i><span class="notice-dot hide notice-dot-followed"></span></a></li><li role="presentation" class=""><a href="https://segmentfault.com/e/1160000005060714#messageInbox" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true"><i class="fa fa-commenting"></i><span class="notice-dot hide notice-dot-inboxes"></span></a></li></ul></div><div class="panel-body"><div class="tab-content"><div role="tabpanel" class="tab-pane active" id="messageGeneral"></div><div role="tabpanel" class="tab-pane" id="messageRanked"></div><div role="tabpanel" class="tab-pane" id="messageFollowed"></div><div role="tabpanel" class="tab-pane" id="messageInbox"></div><script type="text/template" id="messageGeneralTpl"><ul class="mCustomScrollbar-message" data-proto="general"  data-mcs-theme="minimal-dark"><% _.each(general,function(d){ %><li class="<%= d.viewed>0 ?'':'bg-warning'%>"><%= d.sentence %>&nbsp;<a
+                                    href="<%= d.url %>"><%= d.excerpt %></a></li><% }) %></ul></script><script type="text/template" id="item--general"><% _.each(general,function(d){ %><li class="<%= d.viewed>0 ?'':'bg-warning'%>"><%= d.sentence %>&nbsp;<a
+                                    href="<%= d.url %>"><%= d.excerpt %></a></li><% }) %></script><script type="text/template" id="messageRankedTpl"><ul class="mCustomScrollbar-message" data-proto="ranked"  data-mcs-theme="minimal-dark"><% _.each(ranked,function(d){ %><li class="<%= d.viewed>0 ?'':'bg-warning'%>"><span class="badge
+                                                    <% if(d.voted && d.voted.rank!=0){ %><%= d.voted.rank > 0 ? 'green':'red' %><% } else { %> transparent <% } %>"><% if(d.voted){ %><%= d.voted.rank > 0 ? '+'+d.voted.rank:d.voted.rank %><% } %></span><div class="rank-desc"><%= d.sentence %>&nbsp;<a href="<%= d.url %>"><%=
+                                    d.excerpt %></a></div></li><% }) %></ul></script><script type="text/template" id="item--ranked"><% _.each(ranked,function(d){ %><li class="<%= d.viewed>0 ?'':'bg-warning'%>"><span class="badge
+                                                    <% if(d.voted && d.voted.rank!=0){ %><%= d.voted.rank > 0 ? 'green':'red' %><% } else { %> transparent <% } %>"><% if(d.voted){ %><%= d.voted.rank > 0 ? '+'+d.voted.rank:d.voted.rank %><% } %></span><div class="rank-desc"><%= d.sentence %>&nbsp;<a href="<%= d.url %>"><%=
+                                    d.excerpt %></a></div></li><% }) %></script><script type="text/template" id="messageFollowedTpl"><p class="follow-tips">他们最近关注了你</p><ul class="mCustomScrollbar-message" data-proto="followed"  data-mcs-theme="minimal-dark"><% _.each(followed,function(d){ %><li class="<%= d.viewed>0 ?'':'bg-warning'%>"><img class="follower__img avatar-32"
+                                 src="<%= d.triggerUser[0] ? d.triggerUser[0].avatarUrl : '' %>"><div class="follower__info"><% if(d.triggerUser[0] ? d.triggerUser[0].isFollowed : ''){ %><button data-id="<%= d.triggerUser[0] ? d.triggerUser[0].id : '' %>"
+                                        class="btn btn-default btn-xs message__btn--unfollow pull-right active">
+                                    已关注
+                                </button><% }else{ %><button data-id="<%= d.triggerUser[0] ? d.triggerUser[0].id : '' %>"
+                                        class="btn btn-default btn-xs message__btn--follow pull-right">
+                                    关注
+                                </button><% } %><a href="<%= d.triggerUser[0] ? d.triggerUser[0].url : '' %>"><%=d.triggerUser[0] ? d.triggerUser[0].name : ''%></a><br><span><%= d.triggerUser[0] ? d.triggerUser[0].rank : '' %> 声望</span></div></li><% }) %></ul></script><script type="text/template" id="item--followed"><% _.each(followed,function(d){ %><li class="<%= d.viewed>0 ?'':'bg-warning'%>"><img class="follower__img avatar-32"
+                                 src="<%= d.triggerUser[0] ? d.triggerUser[0].avatarUrl : '' %>"><div class="follower__info"><% if(d.triggerUser[0] && d.triggerUser[0].isFollowed){ %><button data-id="<%= d.triggerUser[0] ? d.triggerUser[0].id : '' %>"
+                                        class="btn btn-default btn-xs message__btn--unfollow pull-right active">
+                                    已关注
+                                </button><% }else{ %><button data-id="<%= d.triggerUser[0] ? d.triggerUser[0].id : '' %>"
+                                        class="btn btn-default btn-xs message__btn--follow pull-right">
+                                    关注
+                                </button><% } %><a href="<%= d.triggerUser[0] ? d.triggerUser[0].url : '' %>"><%= d.triggerUser[0].name
+                                    %></a><br><span><%= d.triggerUser[0].rank %> 声望</span></div></li><% }) %></script><script type="text/template" id="messageInboxTpl"><p class="follow-tips">他们给你发了私信</p><ul class="mCustomScrollbar-message" data-proto="inbox" data-mcs-theme="minimal-dark"><% _.each(inboxes,function(d){ %><li class="<%= d.viewed>0 ?'':'bg-warning'%>" data-click="<%= d.url %>"><img class="follower__img avatar-32"
+                                     src="<%= d.targetUser.avatarUrl %>"><div class="follower__info"><a href="<%= d.url %>"><%= d.targetUser.name
+                                        %></a><br><span class="ellipsis inline-block" style="width: 245px;"><%= d.lastMessage.content.content %></span></div></li><% }) %><% if(inboxes.length ==0){ %><p class="text-center">没有人给你发私信</p><% } %></ul></script><script type="text/template" id="item--inboxes"><% _.each(inboxes,function(d){ %><li class="<%= d.viewed>0 ?'':'bg-warning'%>" data-click="<%= d.url %>"><img class="follower__img avatar-32"
+                                     src="<%= d.targetUser.avatarUrl %>"><div class="follower__info"><a href="<%= d.targetUser.url %>"><%= d.targetUser.name
+                                        %></a><br><span class="ellipsis inline-block" style="width: 245px;"><%= d.content %></span></div></li><% }) %></script></div><p class="opts__item--message-loading follow-tips">loading</p></div><div class="panel-footer"><div class="row"><div class="col-sm-6"><a href="javascript:;" class="message-ingore-all hide"><span class="glyphicon glyphicon-ok-sign"></span>
+                        全部标记为已读</a></div><div class="col-sm-6"><a class="opts__item--message-view-all" href="https://segmentfault.com/user/notifications">查看全部
+                        »</a></div></div></div></div></div></li><li class="opts__item user dropdown hoverDropdown"><a class="dropdownBtn user-avatar" data-toggle="dropdown" style="background-image: url(&#39;https://sfault-avatar.b0.upaiyun.com/110/064/1100641451-1030000000520876_big64&#39;)" href="https://segmentfault.com/u/wuchaolong"></a><ul class="dropdown-menu dropdown-menu-right"><li><a href="https://segmentfault.com/u/wuchaolong">我的主页</a></li><li><a href="https://segmentfault.com/u/wuchaolong/profile">我的档案</a></li><li><a href="https://segmentfault.com/user/settings">账号设置</a></li><li><a href="https://segmentfault.com/api/user/logout?_=dce344cbd1e15353976f01a04d0baa9d">退出</a></li><li class="divider"></li><li><a href="https://board.segmentfault.com/">建议反馈</a></li><li><a class="js__action--complain" href="javascript:void(0);">用户申诉</a></li><script type="text/template" id="js__action--complain-tpl"><form class="complain__form" method="post" action="/api/appeals/add"><div class="form-group"><label>理由</label><textarea name="description" class="form-control"
+                                                              rows="3"></textarea></div></form></script></ul></li></ul></div></div></nav></div><div class="global-navTags"><div class="container"><nav class=" nav"><ul class="nav__list"><li class="nav__item"><a href="https://segmentfault.com/"><i class="fa fa-home"></i>home
+                            </a></li><li class="nav__item"><a href="https://segmentfault.com/timeline"><i class="fa fa-list-alt"></i>feed
+                            </a></li><li class="nav__item nav__item--split"><a><span class="split"></span></a></li><li class="nav__item tag-nav__item"><a href="https://segmentfault.com/t/javascript">javascript</a></li><li class="nav__item tag-nav__item"><a href="https://segmentfault.com/t/php">php</a></li><li class="nav__item tag-nav__item"><a href="https://segmentfault.com/t/python">python</a></li><li class="nav__item tag-nav__item"><a href="https://segmentfault.com/t/java">java</a></li><li class="nav__item tag-nav__item"><a href="https://segmentfault.com/t/mysql">mysql</a></li><li class="nav__item tag-nav__item"><a href="https://segmentfault.com/t/ios">ios</a></li><li class="nav__item tag-nav__item"><a href="https://segmentfault.com/t/android">android</a></li><li class="nav__item tag-nav__item"><a href="https://segmentfault.com/t/node.js">node.js</a></li><li class="nav__item tag-nav__item"><a href="https://segmentfault.com/t/html5">html5</a></li><li class="nav__item tag-nav__item"><a href="https://segmentfault.com/t/linux">linux</a></li><li class="nav__item tag-nav__item"><a href="https://segmentfault.com/t/c%2B%2B">c++</a></li><li class="nav__item tag-nav__item"><a href="https://segmentfault.com/t/css3">css3</a></li><li class="nav__item tag-nav__item"><a href="https://segmentfault.com/t/git">git</a></li><li class="nav__item tag-nav__item"><a href="https://segmentfault.com/t/golang">golang</a></li><li class="nav__item tag-nav__item"><a href="https://segmentfault.com/t/ruby">ruby</a></li><li class="nav__item tag-nav__item"><a href="https://segmentfault.com/t/vim">vim</a></li><li class="nav__item tag-nav__item"><a href="https://segmentfault.com/t/docker">docker</a></li><li class="nav__item tag-nav__item"><a href="https://segmentfault.com/t/mongodb">mongodb</a></li><li class="nav__item nav__item--more" data-open="0"><a class="nav__item--more-link" href="https://segmentfault.com/tags"><div class="tag__more"><i class="tag__more--icon"></i><i class="tag__more--icon"></i><i class="tag__more--icon"></i></div></a></li></ul><div class="tag-mgr__box hide"><input class="tag-mgr__query" type="text" placeholder="搜索关注的标签" data-tags="null"><div class="mCustomScrollbar" data-mcs-theme="minimal-dark"><ul class="tag-mgr__list"></ul></div><a href="https://segmentfault.com/tags" class="btn btn-primary btn-sm tag-mgr__btn">标签管理</a></div></nav></div></div>
+<div class="wrap">
+    <div class="post-topheader">
+        <div class="container">
+            <span class="post-topheader__title--icon-symbol">事</span>
+            <div class="post-topheader__info">
+                <h1 class="h3 post-topheader__info--title">
+                <a href="https://segmentfault.com/e/1160000005060714">SegmentFault Hackathon 文艺复兴 - 深圳站</a></h1>
+            </div>
+        </div>
+    </div>
+    <div class="container mt30">
+        <div class="row event-summary">
+    <div class="col-md-6 event-summary__pic">
+        <a href="https://segmentfault.com/e/1160000005060714"><img src="./index_files/1502097923-573aa1e1d24dc_big" style="width: 100%" alt="SegmentFault Hackathon 文艺复兴 - 深圳站"></a>
+    </div>
+    <div class="col-md-4 event-summary__info">
+        <table>
+            <tbody><tr>
+                <th>开始时间：</th>
+                <td class="addWeek">2016-06-04 09:00 周六</td>
+            </tr>
+            <tr>
+                <th>结束时间：</th>
+                <td class="addWeek">2016-06-05 18:00 周日</td>
+            </tr>
+            <tr>
+                <th>举办地点：</th>
+                <td>
+                                        <a target="_blank" href="http://api.map.baidu.com/geocoder?output=html&amp;address=%E6%B7%B1%E5%9C%B3%E5%B8%82%E5%8D%97%E5%B1%B1%E5%8C%BA%E5%8D%97%E6%B5%B7%E5%A4%A7%E9%81%931067%E5%8F%B7%E7%A7%91%E6%8A%80%E5%A4%A7%E5%8E%A6%E4%B8%80%E6%9C%9F%E4%BA%94%E6%A5%BC%EF%BC%88%E5%90%AF%E8%BF%AA%E7%8E%AF%E7%90%83%E7%BD%91%E7%BB%9C%EF%BC%89"><span id="eventCity">深圳市</span><span id="eventAdd">南山区南海大道1067号科技大厦一期五楼（启迪环球网络）</span></a>
+                                    </td>
+            </tr>
+            <tr>
+                <th>主办方：</th>
+                <td>
+                    <div class="ellipsis-l2">
+                                                        <a href="https://segmentfault.com/" target="_blank">SegmentFault</a>,                                                                            <a href="http://angelhack.com/" target="_blank">AngelHack</a>                                                        </div>
+                </td>
+            </tr>
+                                    <tr>
+                <td colspan="2">
+                                                                        <button class="btn btn-default btn-lg" disabled="">报名截止</button>
+                                            
+                                            <span class="text-muted ml10">活动进行中</span>
+                                    </td>
+            </tr>
+        </tbody></table>
+    </div>
+    <div class="col-md-2 event-summary__map">
+
+                <div id="map" class="map"></div>
+            </div>
+</div>
+
+        <div class="row mt30">
+            <div class="col-xs-12 col-md-8 main">
+                <div class="fmt event">
+                    
+<h2>活动及主题简介</h2>
+<p>1959 年，彼得 · 萨姆森在造访 MIT 时看到了计算机，并由此诞生了被称为第一代 hacker 的 TMRC（技术模型铁路俱乐部）。他们挑战规则、承担风险，聪明、独立、忘我。他们通宵达旦的研究，改革、更新和完善不断复杂的计算机系统，他们极富好奇心和求知欲——他们是世界的冒险家和创造者。 </p>
+<p>2016 年，SegmentFault 携手 AngelHack 分别在上海、深圳、北京三个城市举行 Hackathon「文艺复兴」，和以往一样，大赛将持续 2 天，参赛者们需要连续 24 小时编程。</p>
+<p>但和以往又有些不同，在提交作品后，全场将以“跳蚤市场”模式对外开放，还在等什么呢？</p>
+<h2>参赛规则</h2>
+<h3>参赛指南</h3>
+<p>本次黑客马拉松采用命题制，比赛开始后在现场公布命题，鼓励开发者从多角度去发挥，实现自己的创意。</p>
+<ol>
+<li><p>参赛报名：开发者以个人身份购票（注：团队参赛每个成员都要单独购票）。购票成功后，我们会在赛前 1 周内发送官方邮件，比赛届时凭姓名及联系方式进行签到，领取身份卡。参赛者将每人获得石墨文档 3 个月 VIP 使用权限；</p></li>
+<li><p>团队规模：每个团队 2-5 人，团队最高人限 5 人、1 人最多参与 1 个团队。可提前组队，也可到现场自由组队（提前组队，每个成员都要报名哦）；</p></li>
+<li><p>现场组队：现场会设有白板，准备现场组队的开发者可以用便利贴上写明自己是谁，能做什么，想做什么，在找怎样的人等等，不同的身份卡用于区分开发者角色，帮助更快组队。</p></li>
+</ol>
+<p>备注：现场提供 Wi-Fi，参赛者需自带具备上网功能的笔记本电脑，特殊电源插头请自备转接口。</p>
+<h3>比赛流程</h3>
+<p>本轮黑马比赛分为 5 个阶段进行：</p>
+<ol>
+<li><p>宣讲阶段：大赛主办方进行技术内容宣讲。开发者可选择感兴趣的内容参与，并就自己感兴趣的问题现场提问；</p></li>
+<li><p>开发阶段：参赛队伍进行 24 小时开发。开发者如果有用到现场技术服务方，可以随时通过 SegmentFault 提供的现场展位向大赛服务提供商询问技术问题；</p></li>
+<li><p>提交作品：参赛队伍可以在比赛开始后的 20 小时后开始提交产品。</p></li>
+<li><p>跳蚤市场：参赛作品提交截止后，进入「跳蚤市场」作品展示环节。大赛评委将逛遍所有团队的摊位观看作品展示并提问；</p></li>
+<li><p>颁奖和作品展示：最终获奖团队上台领奖，并进行作品展示，每件作品有 3 分钟时间，可以通过演说、实物演示等手段进行展示。</p></li>
+</ol>
+<h2>大赛议程</h2>
+<p>大赛持续 2 天，共计约 32 小时。<br>流程分 5 个阶段：宣讲、产品开发、提交作品、跳蚤市场、颁奖及作品展示。</p>
+<p>注：本次活动开发者票为42元/位，观众票为10.24元/位（<code>观众票仅限跳蚤市场环节使用</code>）。购票成功后，观众可凭票对参赛作品进行投票，并可获赠纪念品一份。</p>
+<table>
+<thead><tr>
+<th>时间</th>
+<th>事项</th>
+</tr></thead>
+<tbody>
+<tr><td colspan="2"><strong>DAY 1（6月4日）</strong></td></tr>
+<tr>
+<td>09:00</td>
+<td>签到入场</td>
+</tr>
+<tr>
+<td>10:00</td>
+<td>开场、API宣讲</td>
+</tr>
+<tr>
+<td>11:30</td>
+<td>午餐</td>
+</tr>
+<tr>
+<td>12:00</td>
+<td>产品开发</td>
+</tr>
+<tr>
+<td>17:30</td>
+<td>晚餐</td>
+</tr>
+<tr>
+<td>18:00</td>
+<td>产品开发</td>
+</tr>
+<tr>
+<td>23:00</td>
+<td>夜宵 —— 复古蛋糕趴</td>
+</tr>
+<tr><td colspan="2"><strong>DAY 2（6月5日）</strong></td></tr>
+<tr>
+<td>00:00</td>
+<td>产品开发</td>
+</tr>
+<tr>
+<td>08:00</td>
+<td>早餐</td>
+</tr>
+<tr>
+<td>12:00</td>
+<td>作品提交</td>
+</tr>
+<tr>
+<td>12:30</td>
+<td>午餐</td>
+</tr>
+<tr>
+<td>13:00</td>
+<td>跳蚤市场，小组间作品交流</td>
+</tr>
+<tr>
+<td>16:00</td>
+<td>获奖作品展示和颁奖</td>
+</tr>
+<tr>
+<td>17:00</td>
+<td>比赛结束</td>
+</tr>
+</tbody>
+</table>
+<h2>奖项设置</h2>
+<h3>每场 TOP1 奖项</h3>
+<p>获得 ¥3,000 奖金之外， 团队还有机会进入 HACKcelerator 项目，经过 12 周孵化后有机会去美国硅谷。</p>
+<p>同时，团队成员另有 TGN 启迪环球网络 Global membership 全球会员 3 个月使用权，价值 2,000/工位/月 * 团队成员个数，办公场地包括上海、深圳、香港地区任选。</p>
+<h3>单项奖</h3>
+<ul>
+<li><p><strong>石墨文档 单项奖</strong><br>单项奖获奖团队的每位成员都将获得石墨文档高级版一年使用权限。</p></li>
+<li><p><strong>Agora.io 单项奖</strong></p></li>
+</ul>
+<ol>
+<li><p>通话时长代金券 5,999 元（约 100 万分钟语音通话，25 万分钟视频通话）</p></li>
+<li><p>三站最终单项奖冠军（名额一位）可赴硅谷参加声网 Agora.io 全球 Hackathon 总决赛，最终胜出者将获得声网Agora.io 的市场策略支持，来帮助项目落地。</p></li>
+</ol>
+<ul>
+<li><p><strong>每场 HP 奖项</strong><br>提供自然语言处理、机器学习、预测分析API（AngelHack的赞助商 HP），单项奖品为 GoPro * 团队人员个数。</p></li>
+<li><p><strong>每场 Amazon 奖项</strong><br>提供 AWS $100/人</p></li>
+</ul>
+<ul>
+<li><p><strong>每场 Cose4lmpact 奖项</strong><br>通过技术产生作品对社会、环境、人类有影响力推动进步和贡献。有机会入选 HACKcelerator 孵化器项目，飞往旧金山。</p></li>
+<li><p><strong>北京场 Wacom 奖项</strong><br>提供电子墨水的封装 SDK，单项奖将入选 Global Wacom Inkathon，参与 2017 年 1 月的 CES 的旅费，并有机会获得价值为 $10,000、$5,000 或 $2,500 的奖项。</p></li>
+</ul>
+<blockquote><p>其他任何有疑惑的地方，欢迎加入我们的黑客马拉松交流 QQ 群（280915731），咨询本次黑客马拉松的相关事宜，并随时了解最新动态。</p></blockquote>
+<h2>志愿者招募</h2>
+<p>我们希望你</p>
+<ol>
+<li><p>居住在深圳，年龄十八周岁以上，身体健康；</p></li>
+<li><p>充满激情，具备强烈的责任感和执行力，有良好的沟通能力和现场协调能力；</p></li>
+<li><p>本着以服务参赛选手，帮助协调现场运作的诚意，自愿加入 SegmentFault 志愿者团队。明确并知晓志愿者并非免费围观黑客马拉松的渠道；</p></li>
+<li><p>SegmentFault 用户，有黑客马拉松经验/摄影技能者优先；</p></li>
+<li>
+<p>志愿者工作时间为：</p>
+<pre class="hljs css"><div class="widget-codetool" style="display:none;"><button class="selectCode btn btn-xs">全选</button><button href="javascript:void(0);" class="copyCode btn btn-xs" data-clipboard-text="周五下午：14:00-17:00
+周六：8:00-19:00
+周日：10:00-18:00" data-toggle="tooltip" data-placement="bottom" title="">复制</button><button href="javascript:void(0);" class="saveToNote btn btn-xs">放进笔记</button></div><code>周五下午：14<span class="hljs-pseudo">:00-17</span><span class="hljs-pseudo">:00</span>
+周六：8<span class="hljs-pseudo">:00-19</span><span class="hljs-pseudo">:00</span>
+周日：10<span class="hljs-pseudo">:00-18</span><span class="hljs-pseudo">:00</span></code></pre>
+<p>（具体工作时间根据现场负责人安排为准）；</p>
+</li>
+<li><p>志愿者现场大概职责范围：现场签到，分发礼品，分发三餐，分发食物（夜宵、零食和酒水等），卫生保洁，现场摄影以及场内秩序维护等。</p></li>
+</ol>
+<p>本次大赛全程两天（2016年6月4日 - 6月5日），免费提供工作餐、水以及纪念 T-shirt 一件，如有需要，可在活动结束出具社会活动纪念证书。</p>
+<p>志愿者的工作不仅是快乐的，更是肩负重要的责任，希望通过我们共同的努力，让所有热爱黑客马拉松，热爱 SegmentFault 的朋友度过愉快的周末。</p>
+<h3>招募 FAQ</h3>
+<p>Q：我可能周末有别的事儿能不能只去做其中一天的志愿者？<br>A：不可以哦，原则上志愿者工作需要保证两天不少于共 16 小时的工作时间，否则会影响工作安排。</p>
+<p>Q：我想要围观选手开发可以吗？<br>A：志愿者在比赛过程中可以场地自由活动，但务必保证：</p>
+<ol>
+<li><p>不能影响选手开发进度</p></li>
+<li><p>SegmentFault 工作人员随时可以联系到你以备特殊情况发生。</p></li>
+</ol>
+<p>Q：具体要工作到几点呢？我担心太晚回去没有车了。<br>A：志愿者的工作不会拖延的太晚，一般晚上 7 点左右可以结束志愿者工作。</p>
+<p>深圳站报名截止日期为 5 月 31 日（具体时间按照实际人数招满为止）。</p>
+<blockquote><p><strong><a href="http://segmentfault.mikecrm.com/Sd4kkl">申请成为志愿者 ➜</a></strong></p></blockquote>
+<p><img src="./index_files/bVxwJq" alt="图片描述" title="图片描述"><br><br></p>
+
+                </div>
+                                
+                <h4 class="event-detail__comments-heading">讨论区</h4>
+                <div class="widget-comments" id="comment-1160000005060714" data-id="1160000005060714"><span class="load-text text-muted">加载中<br></span>
+                    <div class="widget-comments__form row">
+            
+                                                <form class="clearfix" method="POST">
+                        <div class="form-group mb0 widget-comments__form--input">
+                            <input name="id" type="hidden" value="1160000005060714">
+                            <textarea rows="1" name="text" class="form-control mono" id="commentText-1160000005060714" data-id="1160000005060714" placeholder="使用评论询问更多信息或提出修改意见，请不要在评论里回答问题" style="overflow: hidden; word-wrap: break-word; height: 35px;"></textarea>
+
+                        </div>
+                        <div class="widget-comments__btn">
+                            <div class="pull-right">
+                                <button type="submit" class="btn btn-default postComment" data-id="1160000005060714">提交评论
+                                </button>
+                                <span class="widget-comments__btn--tips"><a href="javascript:void(0);" class="toggle-comment-helper" title="语法提示">
+                                <i class="fa fa-question-circle"></i>
+                            </a></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="col-md-12">
+                        <div class="alert alert-warning alert-dismissible mb0 mt10 fmt comment-helper" data-rank="0" style="" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="right:0;"><span aria-hidden="true">×</span></button>
+                            评论支持部分 Markdown 语法：<code>**bold**</code> <code>_italic_</code>
+                            <code>[link](http://example.com)</code> <code>&gt; 引用</code> <code>`code`</code> <code>-
+                            列表</code>。<br>同时，被你 @ 的用户也会收到通知
+                        </div>
+                    </div>
+                
+            
+        </div><!-- /.widget-comments__form -->
+            </div><!-- /.widget-comments -->
+
+    
+
+                            </div><!-- /.main -->
+
+            <div class="col-xs-12 col-md-4 side">
+
+                
+                <div class="widget-box">
+                    <h2 class="h4 widget-box__title">活动组织者</h2>
+                    <ul class="list-unstyled event-organizers">
+                                                <li>
+                            <span class="sponsors-name">主办方：</span>
+                            <ul class="sponsors">
+                                                                    <li>
+                                                                                    <a href="https://segmentfault.com/" target="_blank">SegmentFault</a>
+                                                                            </li>
+                                                                    <li>
+                                                                                    <a href="http://angelhack.com/" target="_blank">AngelHack</a>
+                                                                            </li>
+                                                            </ul>
+                        </li><li>
+                        
+                                            </li></ul>
+                </div>
+
+                                                    <div class="widget-box">
+                        <h2 class="h4 widget-box__title">相关链接</h2>
+                        <ul class="list-unstyled">
+                                                            <li><a href="https://segmentfault.com/hackathon-2016">Hackathon Renaissance 2016 官网</a></li>
+                                                    </ul>
+                    </div>
+                
+                <div class="widget-share__full" data-text="" data-url="https://segmentfault.com/e/1160000005060714" data-shorturl="http://sfau.lt/b2voGA"><div style="margin-bottom:10px;">分享扩散：</div><div class="widget-share-network sharer-0" style="display: block;"><ul class="sn-inline"><li data-network="weibo"><a href="javascript:void(0);" class="entypo-weibo icon-sn-weibo share-1" data-toggle="tooltip" data-placement="top" title="" data-original-title="分享至新浪微博">新浪微博</a></li><li data-network="wechart"><a href="javascript:void(0);" class="entypo-wechart icon-sn-weixin share-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="分享至微信">微信</a></li><li data-network="twitter"><a href="javascript:void(0);" class="entypo-twitter icon-sn-twitter share-3" data-toggle="tooltip" data-placement="top" title="" data-original-title="分享至 Twitter">Twitter</a></li><li data-network="facebook"><a href="javascript:void(0);" class="entypo-facebook icon-sn-facebook share-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="分享至 Facebook">Facebook</a></li></ul></div><a type="button" class="btn btn-sm shareMore btn-sn-more" data-toggle="popover" data-placement="top" data-url="https://segmentfault.com/e/1160000005060714" data-shorturl="http://sfau.lt/b2voGA"><span class="icon-sn-dotted" data-original-title="" title=""></span><strong class="visible-xs-inline">•••</strong></a></div>
+
+
+                
+                            </div><!-- /.side -->
+        </div>
+    </div>
+</div>
+
+<div class="modal widget-911" id="911" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" data-dismiss="modal" type="button">
+          <span aria-hidden="true">×</span>
+          <span class="sr-only">Close</span>
+        </button>
+        <h4 class="modal-title">举报<span data-model="type"></span></h4>
+      </div>
+      <div class="modal-body">
+        <form id="reportForm">
+          <!-- 后台返回信息 -->
+          <p class="alert alert-warning" data-model="returnMsg"></p>
+          <div data-role="base">
+            <p>
+              <strong class="required">我要举报该<span data-model="type"></span>，理由是：</strong>
+            </p>
+            <ul class="list-unstyled" data-model="list"></ul>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-default pull-left" type="button" data-role="back" style="display:none">返回重选</button>
+                <button class="btn btn-default" data-dismiss="modal" type="button">取消</button>
+        <button class="btn btn-primary" data-role="submit" type="button">提交</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<footer id="footer">
+    <div class="container">
+        <div class="row hidden-xs">
+            <dl class="col-sm-2 site-link">
+                <dt>网站相关</dt>
+                <dd><a href="https://segmentfault.com/about">关于我们</a></dd>
+                <dd><a href="https://segmentfault.com/tos">服务条款</a></dd>
+                <dd><a href="https://segmentfault.com/faq">帮助中心</a></dd>
+                <dd><a href="https://segmentfault.com/repu">声望与权限</a></dd>
+                <dd><a href="https://segmentfault.com/markdown">编辑器语法</a></dd>
+                <dd><a href="https://weekly.segmentfault.com/">每周精选</a></dd>
+                <dd><a href="https://segmentfault.com/app">App 下载</a></dd>
+            </dl>
+            <dl class="col-sm-2 site-link">
+                <dt>联系合作</dt>
+                <dd><a href="https://segmentfault.com/contact">联系我们</a></dd>
+                <dd><a href="https://segmentfault.com/hiring">加入我们</a></dd>
+                <dd><a href="https://segmentfault.com/link">合作伙伴</a></dd>
+                <dd><a href="https://segmentfault.com/press">媒体报道</a></dd>
+                <dd><a href="https://board.segmentfault.com/">建议反馈</a></dd>
+                <dd><a href="http://pan.baidu.com/share/link?shareid=604288&amp;uk=839272106" target="_blank">Logo 下载</a>
+                </dd>
+            </dl>
+            <dl class="col-sm-2 site-link">
+                <dt>常用链接</dt>
+                                                <dd><a href="https://chrome.google.com/webstore/detail/segmentfault-%E7%AC%94%E8%AE%B0/pjklfdmleagfaekibdccmhlhellefcfo" target="_blank">笔记插件: Chrome</a></dd>
+                                                                <dd><a href="https://addons.mozilla.org/zh-CN/firefox/addon/sf-note-ext/" target="_blank">笔记插件: Firefox</a></dd>
+                                                                <dd>订阅：<a href="https://segmentfault.com/feeds">问答</a> / <a href="https://segmentfault.com/feeds/blogs">文章</a></dd>
+                                                                <dd><a href="https://mirrors.segmentfault.com/" target="_blank">SF 文档镜像</a></dd>
+                                                                <dd><a href="https://segmentfault.com/blog/interview" target="_blank">SF 社区访谈</a></dd>
+                                                                <dd><a href="https://segmentfault.com/d-day" target="_blank">技术沙龙 D-DAY</a></dd>
+                                                                <dd><a href="https://segmentfault.com/hackathon" target="_blank">黑客马拉松 Hackathon</a></dd>
+                                                                <dd><a href="https://namebeta.com/" target="_blank">域名搜索注册</a></dd>
+                                            </dl>
+            <dl class="col-sm-2 site-link">
+                <dt>关注我们</dt>
+                                <dd><a href="https://github.com/SegmentFault" target="_blank">Github</a></dd>
+                                <dd><a href="https://twitter.com/segment_fault" target="_blank">Twitter</a></dd>
+                                <dd><a href="https://weibo.com/segmentfault" target="_blank">新浪微博</a></dd>
+                                <dd><a href="https://segmentfault.com/blog/segmentfault_team" target="_blank">SF 团队日志</a></dd>
+                                <dd><a href="https://segmentfault.com/blog/segmentfault" target="_blank">产品技术日志</a></dd>
+                                <dd><a href="https://segmentfault.com/blog/community_admin" target="_blank">社区运营日志</a></dd>
+                                <dd><a href="https://segmentfault.com/blog/segmentfault_news" target="_blank">市场运营日志</a></dd>
+                            </dl>
+            <dl class="col-sm-4 site-link" id="license">
+                <dt>内容许可</dt>
+                <dd>除特别说明外，用户内容均采用 <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-sa/3.0/cn/">知识共享署名-相同方式共享 3.0 中国大陆许可协议</a> 进行许可
+                </dd>
+                <dd>本站由 <a target="_blank" href="https://www.upyun.com/?utm_source=segmentfault&amp;utm_medium=link&amp;utm_campaign=upyun&amp;md=segmentfault">又拍云</a> 提供 CDN 存储服务
+                </dd>
+            </dl>
+        </div>
+        <div class="copyright">
+            Copyright © 2011-2016 SegmentFault. 当前呈现版本 16.06.02<br>
+            <a href="http://www.miibeian.gov.cn/" rel="nofollow">浙ICP备 15005796号-2</a> &nbsp;
+            <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602002000" rel="nofollow">浙公网安备 33010602002000号</a>
+        </div>
+        <p class="text-center">
+            <a class="js__view--selector hidden-sm hidden-md hidden-lg" data-action="mobile" href="javascript:;">移动版</a>
+            <a class="js__view--selector hidden-sm hidden-md hidden-lg" data-action="desktop" href="javascript:;">桌面版</a>
+        </p>
+    </div>
+</footer>
+
+<div id="fixedTools" class="hidden-xs hidden-sm">
+    <a id="backtop" class="border-bottom hidden" href="https://segmentfault.com/e/1160000005060714#">回顶部</a>
+
+    <div class="qrcodeWraper">
+        <a href="https://segmentfault.com/app#qrcode"><span class="glyphicon glyphicon-qrcode"></span></a>
+        <img id="qrcode" class="border" alt="sf-wechat" src="./index_files/appQrcode.png">
+
+        <p class="qrcode-text">扫扫下载 App</p>
+    </div>
+</div>
+
+
+<div class="app-promotion-bar">
+    <a href="javascript:;"><i class="fa fa-close close"></i></a>
+    <div class="icon"></div>
+    <h5 class="title h5">SegmentFault</h5>
+    <p class="describe">一起探索更多未知</p>
+    <a class="download-btn btn btn-sm btn-primary" href="https://segmentfault.com/app#qrcode">下载 App</a>
+</div>
+
+<script id="loginModal" type="text/template">
+<div class="row bg-white login-modal">
+    <div class="col-md-4 col-sm-12 col-md-push-7 login-wrap">
+        <h1 class="h4 text-muted login-title">用户登录</h1>
+        <form action="/api/user/login" method="POST" role="form" class="mt30">
+            <div class="form-group">
+                <label class="control-label">Email</label>
+                <input type="email" class="form-control" name="mail" required placeholder="hello@segmentfault.com">
+            </div>
+            <div class="form-group">
+                <label class="control-label">密码</label>
+                <input type="password" class="form-control" name="password" required placeholder="密码">
+            </div>
+            <div class="form-group clearfix">
+                <div class="checkbox pull-left">
+                    <label><input name="remember" type="checkbox" value="1" checked> 记住登录状态</label>
+                </div>
+                <button type="submit" class="btn btn-primary pull-right pl20 pr20" onclick='ga("send", "event", "email login button", "clicked", "login modal");'>登录</button>
+            </div>
+        </form>
+        <p class="h4 text-muted visible-xs-block h4">快速登录</p>
+        <div class="widget-login mt30">
+            <p class="text-muted mt5 mr10 pull-left hidden-xs">快速登录</p>
+            <a href="/user/oauth/google" class="btn btn-default btn-sm btn-sn-google" onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "google"});'><span class="icon-sn-bg-google"></span> <strong class="visible-xs-inline">Google 账号</strong></a>
+            <a href="/user/oauth/github" class="btn btn-default btn-sm btn-sn-github" onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "github"});");'><span class="icon-sn-bg-github"></span> <strong class="visible-xs-inline">Github 账号</strong></a>
+            <a href="/user/oauth/weibo" class="btn btn-default btn-sm btn-sn-weibo" onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "weibo"});'><span class="icon-sn-bg-weibo"></span> <strong class="visible-xs-inline">新浪微博账号</strong></a>
+            <a href="/user/oauth/qq" class="btn btn-default btn-sm btn-sn-qq" onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "qq"});'><span class="icon-sn-bg-qq"></span> <strong class="visible-xs-inline">QQ 账号</strong></a>
+            <a href="/user/oauth/weixin" class="btn btn-default btn-sm btn-sn-weixin" onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "qq"});'><span class="icon-sn-bg-weixin"></span> <strong class="visible-xs-inline">微信账号</strong></a>
+            <button id="loginShowMore" href="javascript:void(0);" class="btn mb5 btn-default btn-sm btn-sn-dotted"><span class="icon-sn-bg-dotted"></span><strong class="visible-xs-inline">•••</strong></button>
+            <a href="/user/oauth/twitter" class="btn btn-default btn-sn-twitter btn-sm hidden" onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "twitter"});'><span class="icon-sn-bg-twitter"></span> <strong class="visible-xs-inline">Twitter 账号</strong></a>
+            <a href="/user/oauth/facebook" class="btn btn-default btn-sn-facebook btn-sm hidden" onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "facebook"});'><span class="icon-sn-bg-facebook"></span> <strong class="visible-xs-inline">Facebook 账号</strong></a>
+            <a href="/user/oauth/douban" class="btn btn-default btn-sn-douban btn-sm hidden" onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "douban"});'><span class="icon-sn-bg-douban"></span> <strong class="visible-xs-inline">豆瓣账号</strong></a>
+        </div>
+    </div>
+    <div class="login-vline hidden-xs hidden-sm"></div>
+    <div class="col-md-4 col-md-pull-3 col-sm-12 login-wrap">
+        <h1 class="h4 text-muted login-title">创建新账号</h1>
+        <form action="/api/user/register" method="POST" role="form" class="mt30">
+            <div class="form-group">
+                <label for="name" class="control-label">用户名</label>
+                <input type="text" class="form-control" name="name" required placeholder="字母、数字等，用户名唯一">
+            </div>
+            <div class="form-group">
+                <label for="mail" class="control-label">Email</label>
+                <input type="hidden" style="display:none" name="mail">
+                <input type="email" autocomplete="off" class="form-control register-mail" name="mail" required placeholder="hello@segmentfault.com">
+            </div>
+            <div class="form-group">
+                <label for="password" class="control-label">密码</label>
+                <input type="password" class="form-control" name="password" required placeholder="不少于 6 位">
+            </div>
+            <div class="form-group" style="display:none;">
+                <label class="required control-label">验证码</label>
+                <input type="text" class="form-control" id="captcha" name="captcha" placeholder="请输入下方的验证码">
+                <div class="mt10"><a id="loginReloadCaptcha"  href="javascript:void(0)"><img data-src="/user/captcha?w=240&h=50" class="captcha" width="240" height="50" /></a></div>
+            </div>
+            <div class="form-group clearfix">
+                <div class="checkbox pull-left">
+                    同意并接受<a href="/tos" target="_blank">《服务条款》</a>
+                </div>
+                <button type="submit" class="btn btn-primary pl20 pr20 pull-right" onclick='ga("send", "event", "email register button", "clicked", "login modal");'>注册</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="text-center text-muted mt30">
+    <a href="/user/forgot" class="ml5">找回密码</a>
+</div>
+</script>
+
+
+
+<script>
+    (function (w) {
+        w.SF = {
+            staticUrl: "https://sf-static.b0.upaiyun.com/v-57515928"
+        };
+        w.SF.token = (function () {
+    var _TU5x = //'aBc'
+'aBc'+//'N8'
+'d'+//'eeh'
+'ce3'+//'Le'
+'44c'+//'HG'
+'b'+'d'//'1P'
++'1e1'//'p'
++/* 'WU'//'WU' */''+//'IS'
+'53'+'50W'//'50W'
++'5'//'0qC'
++'B'//'B'
++'39'//'wq'
++'MUr'//'MUr'
++'76f'//'lW'
++'01a'//'K'
++''///*'IQ'*/'IQ'
++'04d'//'S'
++'0ba'//'B'
++'20'//'20'
++''///*'aC6'*/'aC6'
++'a9d'//'t'
+, _UCjZo = [[0,3],[14,17],[15,16],[17,20],[29,31]];
+
+    for (var i = 0; i < _UCjZo.length; i ++) {
+        _TU5x = _TU5x.substring(0, _UCjZo[i][0]) + _TU5x.substring(_UCjZo[i][1]);
+    }
+
+    return _TU5x;
+})();;
+    })(window);
+
+                var lock = {
+        type: "",
+        text: '',
+        table: {"ban_post":[1,"\u4f60\u5df2\u7ecf\u88ab\u7981\u8a00, \u65e0\u6cd5\u8fdb\u884c\u6b64\u64cd\u4f5c, \u5982\u6709\u7591\u4e49\u8bf7\u63d0\u4ea4\u7533\u8bc9, \u6216\u8005\u53d1\u90ae\u4ef6\u5230pr@segmentfault.com"]}
+    };
+</script>
+
+    <script crossorigin="" src="./index_files/assets.js"></script>
+    <script crossorigin="" src="./index_files/detail.min.js"></script>
+
+<script async="" src="./index_files/asyncjs.php"></script>
+
+<script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-918487-8']);
+    _gaq.push(['_trackPageview']);
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            
+        
+
+                        
+
+    ga('create', 'UA-918487-8', 'auto', {
+        'userID'
+    : 1030000000520876,
+        'createdTime'
+    : 1401161738,
+        'now'
+    : 1465103311 });
+    ga('set', 'dimension1', 'active_registed_visitor');
+    ga('send', 'pageview');
+
+</script>
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?e23800c454aa573c0ccb16b52665ac26";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<div id="noteWidget" class="noteWidget hidden hidden-xs">
+    <div class="noteWidget-header clearfix">
+        <h2 class="h4 pull-left">记笔记</h2>
+        <ul class="list-inline pull-right mb0">
+            <li id="noteWidgetMinimize"><span class="icon-minimize"></span></li><li id="noteWidgetZoom"><span class="icon-zoom"></span></li><li id="noteWidgetClose"><span class="icon-close"></span></li>
+        </ul>
+    </div>
+    <form method="POST" action="https://segmentfault.com/api/notes/add" role="form">
+        <div class="form-group">
+            <label for="title" class="sr-only">标题</label>
+            <input type="hidden" value="" id="draftId">
+            <input type="text" name="title" data-error="" autocomplete="off" class="form-control" placeholder="笔记描述" value="">
+        </div>
+        <div class="editor-config clearfix">
+            <select name="lang" class="form-control pull-left input-sm">
+                <optgroup label="文本语法">
+                    <option value="text" data-mode="text">纯文本</option>
+                    <option value="markdown" data-mode="markdown">Markdown</option>
+                    <option value="javascript" data-mode="javascript">Javascript</option>
+                    <option value="css" data-mode="css">CSS</option>
+                    <option value="html5" data-mode="htmlmixed">HTML</option>
+                    <option value="php" data-mode="php">PHP</option>
+                    <option value="python" data-mode="python">Python</option>
+                    <option value="ruby" data-mode="ruby">Ruby</option>
+                    <option value="go" data-mode="go">Go</option>
+                    <option value="c" data-mode="clike">C/C++</option>
+                    <option value="java" data-mode="java">Java</option>
+                    <option value="bash" data-mode="shell">Shell/Bash</option>
+                </optgroup>
+            </select>
+            <div class="pull-right hidden-xs">
+                <select name="indentWithTabs" class="form-control inline-block input-sm">
+                    <optgroup label="缩进模式">
+                        <option value="false">空格缩进</option>
+                        <option value="true">Tabs 缩进</option>
+                    </optgroup>
+                </select>
+                <select name="tabSize" class="form-control inline-block input-sm">
+                    <optgroup label="缩进大小">
+                        <option value="2">2</option>
+                        <option value="4" selected="">4</option>
+                    </optgroup>
+                </select>
+                <select name="lineWrap" class="form-control inline-block input-sm">
+                    <optgroup label="换行方式">
+                        <option value="true">自动换行</option>
+                        <option value="false">不换行</option>
+                    </optgroup>
+                </select>
+            </div>
+        </div>
+        <textarea id="codeMirror" class="form-control" style="display: none;"></textarea><div class="CodeMirror cm-s-default CodeMirror-wrap"><div style="overflow: hidden; position: relative; width: 3px; height: 0px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-hscrollbar" style="left: 0px;"><div style="height: 100%; min-height: 1px;"></div></div><div class="CodeMirror-vscrollbar"><div style="min-width: 1px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px;"><div style="position: relative;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"></div><div class="CodeMirror-code"></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px;"></div><div class="CodeMirror-gutters"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 1px;"></div></div></div></div>
+        <div class="mt20 clearfix">
+            <div class="pull-right">
+                <span class="text-muted hidden" id="editorStatus">已保存</span>
+                <a id="dropIt" href="javascript:void(0);" class="mr10 hidden">[舍弃]</a>
+                <button data-type="note" id="publishIt2" class="btn btn-default ml10" data-id="" data-do="add" data-url="" data-text="保存私密笔记" data-name="">保存私密笔记</button>
+                <button data-type="note" id="publishIt" class="btn btn-primary ml10" data-id="" data-do="add" data-url="" data-text="保存公开笔记" data-name="">保存公开笔记</button>
+                </div>
+            </div>
+        </form></div>
+    
+<div id="atwho-container"><div id="atwho-ground-commentText-1160000005060714"><div class="atwho-view" id="at-view-64"><ul class="atwho-view-ul"></ul></div></div></div><textarea tabindex="-1" style="position: absolute; top: -999px; left: 0px; right: auto; bottom: auto; border: 0px; padding: 0px; box-sizing: content-box; word-wrap: break-word; overflow: hidden; transition: none; height: 0px !important; min-height: 0px !important; font-family: Menlo, Monaco, Consolas, &#39;Courier New&#39;, monospace; font-size: 14px; font-weight: 400; font-style: normal; letter-spacing: 0px; text-transform: none; word-spacing: 0px; text-indent: 0px; white-space: pre-wrap; line-height: 21px; width: 502px;" class="autosizejs" id="autosizejs"></textarea><div id="global-zeroclipboard-html-bridge" class="global-zeroclipboard-container" style="position: absolute; left: 0px; top: -9999px; width: 1px; height: 1px; z-index: 999999999;"><object id="global-zeroclipboard-flash-bridge" name="global-zeroclipboard-flash-bridge" width="100%" height="100%" type="application/x-shockwave-flash" data="./index_files/ZeroClipboard.swf"><param name="allowScriptAccess" value="always"><param name="allowNetworking" value="all"><param name="menu" value="false"><param name="wmode" value="transparent"><param name="flashvars" value="trustedOrigins=segmentfault.com%2C%2F%2Fsegmentfault.com%2Chttps%3A%2F%2Fsegmentfault.com&amp;swfObjectId=global-zeroclipboard-flash-bridge"></object></div></body></html>
