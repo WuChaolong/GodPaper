@@ -67,11 +67,14 @@ if ("onhashchange" in window) {
 function refSave(shape) {
 	var copy = Object.assign({}, shape);
     var points = copy.points;
-//     for(var i = 0;i<points.length;i++){
-//     	points[i].color = danghua(points[i].color);
-//     }
+    
     copy["smoothedPoints"]=[];
     copy["tail"]=[];
+    copy["sampleColor"]=copy.points[0].color;
+    for(var i = 0;i<points.length;i++){
+    	delete points[i].color;
+    	delete points[i].id;
+    }
     backgroundShapesRef.push(copy);
 //     copy = null;
 //     backgroundShapesRef.child("help").on("value", function(snapshot) {
