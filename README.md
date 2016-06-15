@@ -40,3 +40,7 @@
 什么是Paaper？Paaper是有魔法的纸，能指引你找到密室。来见证奇迹http://wuchaolong.github.io/paaper/?key=一个key打开一张Paaper
 
 <h2>font 20 blackground 200</h2>
+
+<h2>用户反馈</h2>
+<h2>当你在网页上撒尿，别人路过闻得到，会怎样？添加Paaper试试看</h2>
+<h2>你在网页上画小薇我❤你，小薇路过，会怎样？添加Paaper试试看</h2>
