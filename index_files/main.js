@@ -61,7 +61,7 @@ if ("onhashchange" in window) {
     window.onhashchange = setTransform;
 }
 
-document.smsForm.text.value +=("+"+location.href);
+document.smsForm.text.value +=(" "+location.href+" -");
 document.smsForm.onsubmit=function(e){
 	e.preventDefault();
 	smsShowStatus(100);
@@ -193,9 +193,9 @@ function httpGetAsync(theUrl, callback,data)
 function smsShowStatus(status){
 	var statusEle = document.getElementById("statusSms");
 	var statusText;
-	if(status===0){
+	if(status===0||status==="0"){
 		statusText="sucess";
-	}else if(status===100){
+	}else if(status==100){
 		statusText="sending";
 	}else{
 		statusText = "error "+status;
