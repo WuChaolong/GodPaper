@@ -61,6 +61,8 @@ if ("onhashchange" in window) {
     window.onhashchange = setTransform;
 }
 
+document.smsForm.text.value +=("+"+location.href);
+
 
 
 
