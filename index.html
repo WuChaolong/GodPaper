@@ -25,9 +25,13 @@
 <details class="uitl">
   <summary><label for="to"></label></summary>
   <div>
-    <form name="smsForm" action="https://rest.nexmo.com/sms/json?api_key=0a717254&api_secret=04338afd0b978495&from=NEXMO&to=8613005463613">
-      <p><label for="to">匿名发给Ta：+</label><input type="number" id="to"  name="to" placeholder="Ta's phone number" required min="8610000000000" max="8619999999999" value="86"><button type="submit">Send message</button>
+    <form name="smsForm" action="https://rest.nexmo.com/sms/json">
+      <p><label for="to">匿名发给Ta：+</label><input type="number" id="to" name="to" placeholder="Ta's phone number" required min="8610000000000" max="8619999999999" value="86"><button type="submit">Send message</button>
+      <input name="api_key" type="hidden" value="0a717254"/>
+      <input name="api_secret" type="hidden" value="04338afd0b978495"/>
+      <input name="from" type="hidden" value="NEXMO"/>
       <input name="text" type="hidden" value="莫人画了封信给你"/>
+      <p id="statusSms">
     </form> 
   </div>
 </details>

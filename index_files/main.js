@@ -62,7 +62,15 @@ if ("onhashchange" in window) {
 }
 
 document.smsForm.text.value +=("+"+location.href);
-
+document.smsForm.onsubmit=function(e){
+	e.preventDefault();
+	smsShowStatus(100);
+	var url = "http://charon-node.herokuapp.com/cross?api="+this.action+"&"+serialize(this);
+	httpGetAsync(url,function(text){
+		var data = JSON.parse(text);
+		smsShowStatus(data.messages[0].status);
+	});
+}
 
 
 
@@ -171,4 +179,88 @@ function htmlToElement(html) {
 function setTitle(title){
 	var titleDom = document.getElementsByTagName("title")[0];
 	titleDom.innerHTML=title;
+}
+function httpGetAsync(theUrl, callback,data)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() { 
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            callback(xmlHttp.responseText);
+    }
+    xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+    xmlHttp.send(data?data:null);
+}
+function smsShowStatus(status){
+	var statusEle = document.getElementById("statusSms");
+	var statusText;
+	if(status===0){
+		statusText="sucess";
+	}else if(status===100){
+		statusText="sending";
+	}else{
+		statusText = "error "+status;
+	}
+	statusEle.innerHTML=statusText;
+}
+ function serialize (form) {
+        if (!form || form.nodeName !== "FORM") {
+                return;
+        }
+        var i, j, q = [];
+        for (i = form.elements.length - 1; i >= 0; i = i - 1) {
+                if (form.elements[i].name === "") {
+                        continue;
+                }
+                switch (form.elements[i].nodeName) {
+                case 'INPUT':
+                        switch (form.elements[i].type) {
+                       	case '':
+                        case 'number':
+                        case 'text':
+                        case 'hidden':
+                        case 'password':
+                        case 'button':
+                        case 'reset':
+                        case 'submit':
+                                q.push(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].value));
+                                break;
+                        case 'checkbox':
+                        case 'radio':
+                                if (form.elements[i].checked) {
+                                        q.push(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].value));
+                                }                                               
+                                break;
+                        }
+                        break;
+                        case 'file':
+                        break; 
+                case 'TEXTAREA':
+                        q.push(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].value));
+                        break;
+                case 'SELECT':
+                        switch (form.elements[i].type) {
+                        case 'select-one':
+                                q.push(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].value));
+                                break;
+                        case 'select-multiple':
+                                for (j = form.elements[i].options.length - 1; j >= 0; j = j - 1) {
+                                        if (form.elements[i].options[j].selected) {
+                                                q.push(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].options[j].value));
+                                        }
+                                }
+                                break;
+                        }
+                        break;
+                case 'BUTTON':
+                        switch (form.elements[i].type) {
+                        case 'reset':
+                        case 'submit':
+                        case 'button':
+                                q.push(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].value));
+                                break;
+                        }
+                        break;
+                }
+        }
+        return q.join("&");
 }
