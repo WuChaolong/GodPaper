@@ -80,7 +80,7 @@ function refSave(shape) {
     
     copy["smoothedPoints"]=[];
     copy["tail"]=[];
-    copy["sampleColor"]=copy.points[0].color;
+    copy["sampleColor"]=points[0].color;
     for(var i = 0;i<points.length;i++){
     	delete points[i].color;
     	delete points[i].id;
@@ -198,11 +198,11 @@ function smsShowStatus(status){
 	}else if(status==100){
 		statusText="sending";
 	}else{
-		statusText = "error "+status;
+		statusText = "error "+status+", 没钱上交nexmo sms servers，只能我测试用，如果你愿意帮我出这个钱,则短信里加你想打的广告";
 	}
 	statusEle.innerHTML=statusText;
 }
- function serialize (form) {
+function serialize (form) {
         if (!form || form.nodeName !== "FORM") {
                 return;
         }

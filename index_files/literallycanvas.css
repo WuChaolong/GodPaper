@@ -43,7 +43,14 @@ form[name="smsForm"]{
 textarea{
     width:100%;
 }
-
+#to:before{
+    content:"+";
+    /* width: 1em; */
+    /* position: absolute; */
+    /* left: 0; */
+    /* top: 0; */
+    /* border: 5px; */
+}
 
 /*# sourceMappingURL=literallycanvas.css.map */
 
