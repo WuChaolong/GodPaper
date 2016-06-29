@@ -2388,7 +2388,7 @@ linePathFuncs = {
     }
     points = args.points || [];
     this.order = args.order || 3;
-    this.tailSize = args.tailSize || 3;
+    this.tailSize = args.tailSize || 5;
     this.smooth = 'smooth' in args ? args.smooth : true;
     this.segmentSize = Math.pow(2, this.order);
     this.sampleSize = this.tailSize + 1;

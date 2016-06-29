@@ -102,7 +102,6 @@ function sessionGet() {
     var shapes = JSON.parse(sessionStorage[pointsRefKey]||"[]");
     var i,l=shapes.length;
     for(i = 0;i<l;i++){
-        
         shapes[i] = LC.JSONToShape({className:"LinePath",data:shapes[i]});
     }
     return shapes;
@@ -202,7 +201,7 @@ function smsShowStatus(status){
 	}
 	statusEle.innerHTML=statusText;
 }
-function serialize (form) {
+function serialize (form){
         if (!form || form.nodeName !== "FORM") {
                 return;
         }
