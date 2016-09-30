@@ -24,7 +24,7 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 });
 var STATUS ={
   disabled: {
-    buttonToolTip: 'Add  a Paaper to this page',
+    buttonToolTip: 'Add a Paaper to this page',
     buttonIcon: '1464654409058/paper.png'
   },
   enabled: {
