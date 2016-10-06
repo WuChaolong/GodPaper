@@ -5,12 +5,14 @@
   "version": "2.0",
     "icons": { "128": "1464654409058/paper.png" },
   "permissions": [
-    "activeTab"
-  ],
+  "tabs", "*://*/*",
+  "storage"
+],
   "background": {
     "scripts": ["bg.js"],
     "persistent": false
   },
+  
   "browser_action": {
     "default_title": "Add a Paaper to this page",
     "default_icon":  "1464654409058/paper.png"
