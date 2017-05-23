@@ -2,7 +2,9 @@ CACHE MANIFEST
 # v1.0.6
 index.html
 lib/firebase/firebase-debug.js
+lib/firebase/firebase.js
 ./index_files/react-with-addons.js
+./index_files/react-with-addons.min.js
 ./index_files/literallycanvas.css
 ./index_files/literallycanvas.js
 ./index_files/main.js

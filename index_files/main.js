@@ -61,16 +61,16 @@ if ("onhashchange" in window) {
     window.onhashchange = setTransform;
 }
 
-document.smsForm.text.value +=(" "+location.href+" -");
-document.smsForm.onsubmit=function(e){
-	e.preventDefault();
-	smsShowStatus(100);
-	var url = "http://charon-node.herokuapp.com/cross?api="+this.action+"&"+serialize(this);
-	httpGetAsync(url,function(text){
-		var data = JSON.parse(text);
-		smsShowStatus(data.messages[0].status);
-	});
-}
+// document.smsForm.text.value +=(" "+location.href+" -");
+// document.smsForm.onsubmit=function(e){
+// 	e.preventDefault();
+// 	smsShowStatus(100);
+// 	var url = "http://charon-node.herokuapp.com/cross?api="+this.action+"&"+serialize(this);
+// 	httpGetAsync(url,function(text){
+// 		var data = JSON.parse(text);
+// 		smsShowStatus(data.messages[0].status);
+// 	});
+// }
 
 
 
